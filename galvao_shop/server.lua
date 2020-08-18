@@ -40,31 +40,3 @@ function galvaoShop.buyItem(item, zone, section)
         end
     end
 end
-
-local function buildShops(source)
-    local user_id = vRP.getUserId(source)
-    if user_id then
-        for keyConfig, valueConfig in pairs(GalvaoShopConf.Zones) do
-            for k, v in pairs(GalvaoShopConf.Zones[keyConfig].Pos) do
-                local x, y, z = table.unpack(v)
-
-                local shop_enter = function(source)
-                    TriggerClientEvent("galvaoShop:toggleMenu", source, true, keyConfig, GalvaoShopConf.Zones[keyConfig].Vendas)
-                end
-
-                local function shop_leave(source)
-                    TriggerClientEvent("galvaoShop:toggleMenu", source, false, nil, nil)
-                end
-
-                vRPclient._addMarker(source, 21, x, y, z - 0.6, 0.5, 0.5, 0.4, 255, 0, 0, 50, 100)
-                vRP.setArea(source, "vRP:galvao_shop" .. k, x, y, z, 2, 2, shop_enter, shop_leave)
-            end
-        end
-    end
-end
-
-AddEventHandler("vRP:playerSpawn", function(user_id, source, first_spawn)
-    if first_spawn then
-        buildShops(source)
-    end
-end)

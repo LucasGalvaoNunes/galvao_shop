@@ -20,7 +20,7 @@ local menuactive = false
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("galvaoShop:toggleMenu")
 AddEventHandler("galvaoShop:toggleMenu", function(open, zone, vendas)
-    toogleUI(open, zone, vendas)
+
 end)
 
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -52,3 +52,26 @@ function toogleUI(show, zone, vendas)
         SendNUIMessage({ toogleUi = false, zone = zone, vendas = vendas })
     end
 end
+
+
+
+Citizen.CreateThread(function()
+    SetNuiFocus(false,false)
+    while true do
+        Citizen.Wait(1)
+        for keyConfig, valueConfig in pairs(GalvaoShopConf.Zones) do
+            for k, v in pairs(GalvaoShopConf.Zones[keyConfig].Pos) do
+                local x, y, z = table.unpack(v)
+
+                local distance = GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()),x,y,z,true)
+
+                if distance <= 1 then
+                    DrawMarker(21,x,y,z-0.6,0,0,0,0.0,0,0,0.5,0.5,0.4,255,0,0,50,0,0,0,1)
+                    if IsControlJustPressed(0,38) then
+                        toogleUI(true, keyConfig, GalvaoShopConf.Zones[keyConfig].Vendas)
+                    end
+                end
+            end
+        end
+    end
+end)
