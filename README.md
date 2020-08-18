@@ -11,7 +11,7 @@ Siga o passo-a-passo para configurar corretamente o script
 
 ### Instalação
 
-no seu  `server.cfg` adicione está linha abaixo, lembre-se de que deve estar a baixo do `start vrp`:
+no seu  `server.cfg` adicione está linha abaixo, lembre-se de que deve estar abaixo do `start vrp`:
 
 ```
 start galvao_shop
