@@ -10,6 +10,7 @@ Com ela seu servidor vai ter uma interface mais bonita para mostrar os itens dis
 Siga o passo-a-passo para configurar corretamente o script
 
 ### Instalação
+Selecione uma das pastas do `galvao_shop` para a versão que você utiliza do vrp, ou ImagicTheCat ou Dunko.
 
 no seu  `server.cfg` adicione está linha abaixo, lembre-se de que deve estar abaixo do `start vrp`:
 
