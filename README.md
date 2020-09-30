@@ -45,6 +45,9 @@ GalvaoShopConf.Zones = {
 
 Deixei pronto a configuração de todas as lojas de conveniências e ammunation, você pode pegar ela como referência para a criação das suas próprias.
 
+## Screenshots
+![Imagem](https://forum.cfx.re/uploads/default/original/4X/8/b/2/8b2c69ead3590d95f17abe236448c30d73f28425.jpeg)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
